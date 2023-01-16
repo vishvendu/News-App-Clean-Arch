@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_width">200dp</dimen>
+    <dimen name="padding_bottom">10dp</dimen>
+    <dimen name="paddingTop">26dp</dimen>
+    <dimen name="paddingLeft">32dp</dimen>
+    <dimen name="paddingRight">32dp</dimen>
+    <dimen name="paddingBottom">26dp</dimen>
+</resources>

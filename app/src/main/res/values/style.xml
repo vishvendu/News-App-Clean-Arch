@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyBase.Button" parent="Base.Widget.AppCompat.Button">
+        <item name="android:paddingLeft">@dimen/paddingLeft</item>
+        <item name="android:paddingRight">@dimen/paddingRight</item>
+        <item name="android:paddingTop">@dimen/paddingTop</item>
+        <item name="android:paddingBottom">@dimen/paddingBottom</item>
+    </style>
+
+    <style name="MyBase.TextView" parent="Base.Widget.AppCompat.TextView">
+        <item name="android:paddingTop">@dimen/paddingTop</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingBottom">26dp</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+</resources>
