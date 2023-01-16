@@ -7,8 +7,8 @@ import com.vishvendu.cleanarch.news_app.MyNewsApplication
 import com.vishvendu.cleanarch.news_app.data.api.NetworkService
 import com.vishvendu.cleanarch.news_app.data.local.JsonHelper
 import com.vishvendu.cleanarch.news_app.data.local.db.NewsDataBase
-import com.vishvendu.cleanarch.news_app.data.repository.NewsSourcesRepository
-import com.vishvendu.cleanarch.news_app.data.repository.TopHeadlineRepository
+import com.vishvendu.cleanarch.news_app.domain.repository.NewsSourcesRepository
+import com.vishvendu.cleanarch.news_app.domain.repository.TopHeadlineRepository
 import com.vishvendu.cleanarch.news_app.di.ApplicationContext
 import com.vishvendu.cleanarch.news_app.di.NetworkApiKey
 import com.vishvendu.cleanarch.news_app.di.NetworkBASEURL

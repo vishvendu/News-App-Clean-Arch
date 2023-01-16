@@ -1,4 +1,4 @@
-package com.vishvendu.cleanarch.news_app.data.repository
+package com.vishvendu.cleanarch.news_app.domain.repository
 
 import com.vishvendu.cleanarch.news_app.data.api.NetworkService
 import com.vishvendu.cleanarch.news_app.data.model.newssourcedetails.Article

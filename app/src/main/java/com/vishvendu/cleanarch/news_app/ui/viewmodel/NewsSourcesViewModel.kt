@@ -3,7 +3,7 @@ package com.vishvendu.cleanarch.news_app.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vishvendu.cleanarch.news_app.data.model.newssources.Source
-import com.vishvendu.cleanarch.news_app.data.repository.NewsSourcesRepository
+import com.vishvendu.cleanarch.news_app.domain.repository.NewsSourcesRepository
 import com.vishvendu.cleanarch.news_app.utils.DispatcherProvider
 import com.vishvendu.cleanarch.news_app.utils.Resource
 import kotlinx.coroutines.flow.MutableStateFlow

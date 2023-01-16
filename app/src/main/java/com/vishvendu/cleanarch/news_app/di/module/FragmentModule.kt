@@ -4,8 +4,9 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
-import com.vishvendu.cleanarch.news_app.data.repository.*
 import com.vishvendu.cleanarch.news_app.di.ActivityContext
+import com.vishvendu.cleanarch.news_app.domain.repository.*
+import com.vishvendu.cleanarch.news_app.domain.usecase.FetchTopHeadingUseCase
 import com.vishvendu.cleanarch.news_app.ui.adapter.*
 import com.vishvendu.cleanarch.news_app.ui.base.ViewModelProviderFactory
 import com.vishvendu.cleanarch.news_app.ui.viewmodel.*
@@ -45,15 +46,15 @@ class FragmentModule(private val fragment: Fragment) {
 
 
     @Provides
-    fun provideNewsListViewModel(topHeadlineRepository: TopHeadlineRepository): TopHeadlinesViewModel {
+    fun provideNewsListViewModel(fetchTopHeadingUseCase: FetchTopHeadingUseCase): TopHeadlinesViewModel {
         return ViewModelProvider(fragment,
             ViewModelProviderFactory(TopHeadlinesViewModel::class) {
-                TopHeadlinesViewModel(topHeadlineRepository)
+                TopHeadlinesViewModel(fetchTopHeadingUseCase)
             })[TopHeadlinesViewModel::class.java]
     }
 
     @Provides
-    fun provideNewsSourceViewModel(newsSourcesRepository: NewsSourcesRepository,dispatcherProvider: DefaultDispatcherProvider): NewsSourcesViewModel {
+    fun provideNewsSourceViewModel(newsSourcesRepository: NewsSourcesRepository, dispatcherProvider: DefaultDispatcherProvider): NewsSourcesViewModel {
         return ViewModelProvider(fragment,
             ViewModelProviderFactory(NewsSourcesViewModel::class) {
                 NewsSourcesViewModel(newsSourcesRepository,dispatcherProvider)
@@ -85,7 +86,7 @@ class FragmentModule(private val fragment: Fragment) {
     }
 
     @Provides
-    fun provideNewsInLanguageViewModel(newsInLanguageRepository: NewsInLanguageRepository,dispatcherProvider: DefaultDispatcherProvider): NewsInLanguageViewModel {
+    fun provideNewsInLanguageViewModel(newsInLanguageRepository: NewsInLanguageRepository, dispatcherProvider: DefaultDispatcherProvider): NewsInLanguageViewModel {
         return ViewModelProvider(fragment,
             ViewModelProviderFactory(NewsInLanguageViewModel::class) {
                 NewsInLanguageViewModel(newsInLanguageRepository,dispatcherProvider)

@@ -1,4 +1,4 @@
-package com.vishvendu.cleanarch.news_app.data.repository
+package com.vishvendu.cleanarch.news_app.domain.repository
 
 import android.annotation.SuppressLint
 import androidx.room.withTransaction
@@ -44,8 +44,8 @@ class TopHeadlineRepository @Inject constructor(
 
     )
 
-    // added coroutine functionality here work manager does not work with flow API as of now
-    suspend fun updateHeadlineInDB(country: String): Resource<List<TopHeadlineArticle>> {
+    // added coroutine functionality here because work manager does not work with flow API as of now
+    suspend fun getTopHeadlinesWithCoroutines(country: String): Resource<List<TopHeadlineArticle>> {
         var response: List<TopHeadlineArticle> = emptyList()
         withContext(Dispatchers.IO) {
             if (networkManager.checkForInternet()) {

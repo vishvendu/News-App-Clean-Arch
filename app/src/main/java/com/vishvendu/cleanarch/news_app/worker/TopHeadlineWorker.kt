@@ -17,7 +17,7 @@ class TopHeadlineWorker(private val context: Context, param: WorkerParameters) :
     override suspend fun doWork(): Result {
         val repository = (context as MyNewsApplication).applicationComponent.getTopHeadlineRepository()
         return try {
-            repository.updateHeadlineInDB(COUNTRY)
+            repository.getTopHeadlinesWithCoroutines(COUNTRY)
             Result.success()
         }catch ( e: Exception){
             Result.failure()

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vishvendu.cleanarch.news_app.MyNewsApplication
 import com.vishvendu.cleanarch.news_app.data.model.newssourcedetails.Article
-import com.vishvendu.cleanarch.news_app.data.repository.NewsSourceDetailsRepository
+import com.vishvendu.cleanarch.news_app.domain.repository.NewsSourceDetailsRepository
 import com.vishvendu.cleanarch.news_app.databinding.ActivityNewsSourceDetailsBinding
 import com.vishvendu.cleanarch.news_app.di.component.DaggerActivityComponent
 import com.vishvendu.cleanarch.news_app.di.module.ActivityModule

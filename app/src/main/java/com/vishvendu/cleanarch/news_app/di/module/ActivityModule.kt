@@ -3,8 +3,8 @@ package com.vishvendu.cleanarch.news_app.di.module
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.vishvendu.cleanarch.news_app.data.repository.NewsInLanguageRepository
-import com.vishvendu.cleanarch.news_app.data.repository.NewsSourceDetailsRepository
+import com.vishvendu.cleanarch.news_app.domain.repository.NewsInLanguageRepository
+import com.vishvendu.cleanarch.news_app.domain.repository.NewsSourceDetailsRepository
 import com.vishvendu.cleanarch.news_app.di.ActivityContext
 import com.vishvendu.cleanarch.news_app.ui.adapter.NewsSourceDetailsAdapter
 import com.vishvendu.cleanarch.news_app.ui.base.ViewModelProviderFactory

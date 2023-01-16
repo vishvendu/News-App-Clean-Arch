@@ -5,18 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vishvendu.cleanarch.news_app.data.model.topheadlines.TopHeadlineArticle
-import com.vishvendu.cleanarch.news_app.data.repository.TopHeadlineRepository
-import com.vishvendu.cleanarch.news_app.utils.AppConstant.COUNTRY
+import com.vishvendu.cleanarch.news_app.domain.usecase.FetchTopHeadingUseCase
 import com.vishvendu.cleanarch.news_app.utils.Resource
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
-class TopHeadlinesViewModel (private val topHeadlineRepository: TopHeadlineRepository) : ViewModel(){
+class TopHeadlinesViewModel (private val fetchTopHeadingUseCase: FetchTopHeadingUseCase ) : ViewModel(){
 
-    private val _TopHeadline_ArticleList = MutableStateFlow<Resource<List<TopHeadlineArticle>>>(Resource.loading())
-    val topHeadlineArticleList: StateFlow<Resource<List<TopHeadlineArticle>>> = _TopHeadline_ArticleList
+    /*private val _TopHeadline_ArticleList = MutableStateFlow<Resource<List<TopHeadlineArticle>>>(Resource.loading())
+    val topHeadlineArticleList: StateFlow<Resource<List<TopHeadlineArticle>>> = _TopHeadline_ArticleList*/
 
 
     private val _TopHeadline_ArticleList_LiveData = MutableLiveData<Resource<List<TopHeadlineArticle>>>()
@@ -27,7 +23,8 @@ class TopHeadlinesViewModel (private val topHeadlineRepository: TopHeadlineRepos
         fetchNewsWithCoroutine()
     }
 
-    private fun fetchNews() {
+   // fetch news without flow API
+   /* private fun fetchNews() {
         viewModelScope.launch {
             topHeadlineRepository.getTopHeadlines(COUNTRY)
                 .catch { e ->
@@ -37,12 +34,12 @@ class TopHeadlinesViewModel (private val topHeadlineRepository: TopHeadlineRepos
                     _TopHeadline_ArticleList.value = Resource.success(it.data)
                 }
         }
-    }
+    }*/
 
     private fun fetchNewsWithCoroutine() {
         viewModelScope.launch {
             // TODO add try catch block to handle all kind of errors
-           val response = topHeadlineRepository.updateHeadlineInDB(COUNTRY)
+           val response = fetchTopHeadingUseCase.invoke()
             _TopHeadline_ArticleList_LiveData.value = response
         }
     }

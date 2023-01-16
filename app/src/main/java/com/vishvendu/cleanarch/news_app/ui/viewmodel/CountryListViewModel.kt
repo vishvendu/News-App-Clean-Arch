@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vishvendu.cleanarch.news_app.data.model.countrylist.CountryListItem
 import com.vishvendu.cleanarch.news_app.data.model.newssourcedetails.Article
-import com.vishvendu.cleanarch.news_app.data.repository.CountryListRepository
+import com.vishvendu.cleanarch.news_app.domain.repository.CountryListRepository
 import com.vishvendu.cleanarch.news_app.utils.DispatcherProvider
 import com.vishvendu.cleanarch.news_app.utils.Resource
 import kotlinx.coroutines.Dispatchers
