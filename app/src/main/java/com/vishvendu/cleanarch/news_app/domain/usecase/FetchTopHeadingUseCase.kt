@@ -10,6 +10,7 @@ import javax.inject.Inject
 
 class FetchTopHeadingUseCase @Inject constructor(private val topHeadlineRepository: TopHeadlineRepository) {
 
+    // added usecase
     suspend operator fun invoke() : Resource<List<TopHeadlineArticle>>  =
         withContext(Dispatchers.IO) {
             topHeadlineRepository.getTopHeadlinesWithCoroutines(AppConstant.COUNTRY)
