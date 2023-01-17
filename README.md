@@ -4,3 +4,4 @@
 # About this Project
 * This project is for someone who wants to get started with android clean architecture and its basics.
 * I have tried to add all layers and its implemenation in this project.
+![Clean Android Architecture](https://user-images.githubusercontent.com/4905274/212852866-147e6e1e-94de-4f66-8cc0-3a9cf4f8eb24.png)
