@@ -4,7 +4,7 @@
 # About this Project
 * This project is for someone who wants to get started with android clean architecture and its basics.
 * I have tried to add all layers and its implemenation in this project.
-![Clean Android Architecture](https://user-images.githubusercontent.com/4905274/212852866-147e6e1e-94de-4f66-8cc0-3a9cf4f8eb24.png)
+![Clean Android Architecture (1)](https://user-images.githubusercontent.com/4905274/212885263-d4c23ff9-2c5d-4a63-9e22-544a2e5a07de.png)
 # Following is the API and Library I have used in this project
 * Dagger-2 (https://developer.android.com/training/dependency-injection/dagger-android)
 * Room-DB (https://developer.android.com/training/data-storage/room)
