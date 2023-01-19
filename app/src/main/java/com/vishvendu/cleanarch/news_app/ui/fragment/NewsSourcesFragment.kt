@@ -66,7 +66,7 @@ class NewsSourcesFragment : Fragment() {
     private fun setupObserver() {
        lifecycleScope.launch {
            repeatOnLifecycle(Lifecycle.State.STARTED){
-               newsSourcesViewModel.sourceList.collect{
+               newsSourcesViewModel.data.collect{
                    when(it.status){
                        Status.SUCCESS ->{
                            binding.progressBar.visibility = View.GONE

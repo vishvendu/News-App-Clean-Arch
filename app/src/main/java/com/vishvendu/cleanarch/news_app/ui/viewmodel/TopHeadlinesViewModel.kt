@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.vishvendu.cleanarch.news_app.base.BaseViewModel
 import com.vishvendu.cleanarch.news_app.data.model.topheadlines.TopHeadlineArticle
 import com.vishvendu.cleanarch.news_app.domain.usecase.FetchTopHeadingUseCase
 import com.vishvendu.cleanarch.news_app.utils.Resource

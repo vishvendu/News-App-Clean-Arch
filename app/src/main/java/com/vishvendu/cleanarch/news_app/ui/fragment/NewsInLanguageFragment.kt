@@ -85,7 +85,7 @@ class NewsInLanguageFragment : Fragment() {
     private fun setupObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
-                newsInLanguageViewModel.newsList.collect{
+                newsInLanguageViewModel.data.collect{
                     when(it.status){
                         Status.SUCCESS ->{
                             binding.progressBar.visibility = View.GONE

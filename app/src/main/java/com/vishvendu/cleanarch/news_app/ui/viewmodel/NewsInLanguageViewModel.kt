@@ -1,23 +1,18 @@
 package com.vishvendu.cleanarch.news_app.ui.viewmodel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.vishvendu.cleanarch.news_app.base.BaseViewModel
 import com.vishvendu.cleanarch.news_app.data.model.newsinlanguage.Article
 import com.vishvendu.cleanarch.news_app.domain.repository.NewsInLanguageRepository
 import com.vishvendu.cleanarch.news_app.utils.DispatcherProvider
-import com.vishvendu.cleanarch.news_app.utils.Resource
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-class NewsInLanguageViewModel (private val newsInLanguageRepository: NewsInLanguageRepository, private val dispatcherProvider: DispatcherProvider) : ViewModel() {
-
-    private val _newsList = MutableStateFlow<Resource<List<Article>>>(Resource.loading())
-    val newsList: StateFlow<Resource<List<Article>>> = _newsList
+class NewsInLanguageViewModel (private val newsInLanguageRepository: NewsInLanguageRepository, private val dispatcherProvider: DispatcherProvider) : BaseViewModel<List<Article>>() {
 
     fun fetchNewsInTheLanguage(country: HashMap<Int,String>) {
         viewModelScope.launch(dispatcherProvider.main) {
-            _newsList.value = Resource.loading()
+            loading()
             newsInLanguageRepository.getNewsInLanguage(country[0]).catch {
                 emitAll(flowOf(emptyList()))
             }
@@ -32,10 +27,10 @@ class NewsInLanguageViewModel (private val newsInLanguageRepository: NewsInLangu
                 }
                 .flowOn(dispatcherProvider.io)
                 .catch { e ->
-                    _newsList.value = Resource.error(e.toString())
+                    error(e.toString())
                 }
                 .collect {
-                    _newsList.value = Resource.success(it)
+                    success(it)
                 }
 
         }

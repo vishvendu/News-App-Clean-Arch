@@ -62,7 +62,7 @@ class LanguageListFragment : Fragment() {
     private fun setupObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
-                languageListViewModel.languageList.collect{
+                languageListViewModel.data.collect{
                     when(it.status){
                         Status.SUCCESS ->{
                             binding.progressBar.visibility = View.GONE

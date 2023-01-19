@@ -80,7 +80,7 @@ class CountryListFragment : Fragment() {
     private fun setupObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
-                countryListViewModel.countryList.collect{
+                countryListViewModel.data.collect{
                     when(it.status){
                         Status.SUCCESS ->{
                             binding.progressBar.visibility = View.GONE

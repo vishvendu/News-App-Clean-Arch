@@ -18,6 +18,7 @@ class NewsForCountryViewModel(private val newsForCountryRepository: NewsForCount
 
     fun fetchNewsForTheCountry(country : String) {
         viewModelScope.launch(dispatcherProvider.main) {
+            _newsList.value = Resource.loading()
             newsForCountryRepository.getNewsForCountry(country)
                 .catch { e ->
                     _newsList.value = Resource.error(e.toString())

@@ -77,7 +77,7 @@ class NewsSourceDetailsActivity : BaseActivity<ActivityNewsSourceDetailsBinding,
      override fun initObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModels.articleList.collect{
+                viewModels.data.collect{
                     when(it.status){
                         Status.SUCCESS ->{
                             binding.progressBar.visibility = View.GONE

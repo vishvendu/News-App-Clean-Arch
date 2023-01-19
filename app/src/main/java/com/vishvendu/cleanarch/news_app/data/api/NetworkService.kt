@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Singleton
 interface NetworkService {
-// TODO replace API_KEY with OKHTTP Interceptor
+
 
     @GET("top-headlines")
     suspend fun getTopHeadlines(@Query("country") country : String) : TopHeadlinesResponse

@@ -1,25 +1,27 @@
-package com.vishvendu.cleanarch.newsapp.base
+package com.vishvendu.cleanarch.news_app.base
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.vishvendu.cleanarch.news_app.utils.Resource
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+
 
 abstract class BaseViewModel<T>() : ViewModel() {
 
-   /* private val _dataList = MutableStateFlow<Resource<List<Article>>>(Resource.loading())
-    private val dataList: Flow<Resource<List<Article>>> = _dataList*/
+    private val _data = MutableStateFlow<Resource<T>>(Resource.loading())
+    val data: StateFlow<Resource<T>> = _data
 
-    protected val _state = MutableStateFlow<T>(initialState())
 
-    val state: StateFlow<T>
-        get() = _state
+   fun success(data : T){
+       _data.value = Resource.success(data)
+    }
 
-    abstract fun initialState(): T
+    fun <T> error(data : T){
+        _data.value = Resource.error(data.toString())
+    }
 
-    fun updateState(newState: T) {
-        _state.value = newState
+    fun loading(){
+        _data.value = Resource.loading()
     }
 
 }

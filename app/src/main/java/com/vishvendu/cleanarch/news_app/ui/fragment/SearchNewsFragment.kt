@@ -74,7 +74,7 @@ class SearchNewsFragment : Fragment() {
     private fun setupObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                searchNewsViewModel.searchNewsList.collect {
+                searchNewsViewModel.data.collect {
                     when (it.status) {
                         Status.SUCCESS -> {
                             binding.progressBar.visibility = View.GONE
@@ -116,10 +116,10 @@ class SearchNewsFragment : Fragment() {
                         }
                 }
                 .flowOn(Dispatchers.IO).catch {e ->
-                    searchNewsViewModel.failure(e)
+                    searchNewsViewModel.searchFailure(e)
                 }
                 .collect {
-                    searchNewsViewModel.success(it)
+                    searchNewsViewModel.searchSuccess(it)
                 }
         }
     }

@@ -9,10 +9,6 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class FetchTopHeadingUseCase @Inject constructor(private val topHeadlineRepository: TopHeadlineRepository) {
+    suspend operator fun invoke() : Resource<List<TopHeadlineArticle>> = topHeadlineRepository.getTopHeadlinesWithCoroutines(AppConstant.COUNTRY)
 
-    
-    suspend operator fun invoke() : Resource<List<TopHeadlineArticle>>  =
-        withContext(Dispatchers.IO) {
-            topHeadlineRepository.getTopHeadlinesWithCoroutines(AppConstant.COUNTRY)
-        }
 }
