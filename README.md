@@ -1,5 +1,5 @@
 # News-App-Clean-Arch
-![Movie-Clean-Architecture](https://user-images.githubusercontent.com/4905274/212689300-cfcfe0a7-64ab-4fb8-9aef-099875e0c529.png)
+![Blue Breaking News YouTube Channel Art](https://user-images.githubusercontent.com/4905274/213359881-e9654737-a4bb-448a-9d98-f4595a522532.png)
 # Learn android clean architecture
 # About this Project
 * This project is for someone who wants to get started with android clean architecture and its basics.
