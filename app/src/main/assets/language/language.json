@@ -1,0 +1,21 @@
+[{
+  "label": "Arabic",
+  "code": "ar"
+},
+  {
+    "label": "German",
+    "code": "de"
+  },
+  {
+    "label": "English",
+    "code": "en"
+  },
+  {
+    "label": "Spanish",
+    "code": "es"
+  },
+  {
+    "label": "French",
+    "code": "fr"
+  }
+]
