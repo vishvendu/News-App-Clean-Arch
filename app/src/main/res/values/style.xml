@@ -2,6 +2,16 @@
 <resources>
     <style name="MyBase.Button" parent="Base.Widget.AppCompat.Button">
         <item name="android:paddingLeft">@dimen/paddingLeft</item>
+        <item name="android:background">@drawable/rect_rounded_button</item>
+        <item name="android:paddingRight">@dimen/paddingRight</item>
+        <item name="android:paddingTop">@dimen/paddingTop</item>
+        <item name="android:paddingBottom">@dimen/paddingBottom</item>
+    </style>
+
+
+    <style name="Explore.Button" parent="Base.Widget.AppCompat.Button">
+        <item name="android:paddingLeft">@dimen/paddingLeft</item>
+        <item name="android:background">@drawable/rect_rounded_button</item>
         <item name="android:paddingRight">@dimen/paddingRight</item>
         <item name="android:paddingTop">@dimen/paddingTop</item>
         <item name="android:paddingBottom">@dimen/paddingBottom</item>

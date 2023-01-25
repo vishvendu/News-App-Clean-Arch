@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
+import com.vishvendu.cleanarch.news_app.data.api.NetworkService
 import com.vishvendu.cleanarch.news_app.di.ActivityContext
 import com.vishvendu.cleanarch.news_app.domain.repository.*
 import com.vishvendu.cleanarch.news_app.domain.usecase.FetchTopHeadingUseCase
+import com.vishvendu.cleanarch.news_app.paging.NewsFeedAdapter
 import com.vishvendu.cleanarch.news_app.ui.adapter.*
 import com.vishvendu.cleanarch.news_app.ui.base.ViewModelProviderFactory
 import com.vishvendu.cleanarch.news_app.ui.viewmodel.*
@@ -43,6 +45,9 @@ class FragmentModule(private val fragment: Fragment) {
 
     @Provides
     fun provideSearchNewsAdapter() = SearchNewsAdapter(ArrayList())
+
+    @Provides
+    fun provideNewsFeedAdapter() = NewsFeedAdapter(fragment.requireContext())
 
 
     @Provides
@@ -101,4 +106,11 @@ class FragmentModule(private val fragment: Fragment) {
             })[SearchNewsViewModel::class.java]
     }
 
+    @Provides
+    fun provideNewsFeedViewModel(newsFeedRepository: NewsFeedRepository, newsService: NetworkService): NewsFeedViewModel {
+        return ViewModelProvider(fragment,
+            ViewModelProviderFactory(NewsFeedViewModel::class) {
+                NewsFeedViewModel(newsFeedRepository,newsService)
+            })[NewsFeedViewModel::class.java]
+    }
 }

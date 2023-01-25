@@ -17,6 +17,20 @@
         android:theme="@style/Theme.NewsApp"
         tools:targetApi="31">
         <activity
+            android:name=".NewsFeedDetails"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.activity.ExploreNewsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.activity.SearchNewsActivity"
             android:exported="false">
             <meta-data
@@ -60,6 +74,13 @@
         </activity>
         <activity
             android:name=".ui.activity.NewsSourcesActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.activity.NewsFeedDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vishvendu.cleanarch.news_app.MyNewsApplication
+import com.vishvendu.cleanarch.news_app.base.BaseActivity
 import com.vishvendu.cleanarch.news_app.data.model.newssourcedetails.Article
 import com.vishvendu.cleanarch.news_app.domain.repository.NewsSourceDetailsRepository
 import com.vishvendu.cleanarch.news_app.databinding.ActivityNewsSourceDetailsBinding
@@ -22,7 +23,6 @@ import com.vishvendu.cleanarch.news_app.ui.base.ViewModelProviderFactory
 import com.vishvendu.cleanarch.news_app.ui.viewmodel.NewsSourceDetailsViewModel
 import com.vishvendu.cleanarch.news_app.utils.DefaultDispatcherProvider
 import com.vishvendu.cleanarch.news_app.utils.Status
-import com.vishvendu.cleanarch.newsapp.base.BaseActivity
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

@@ -37,6 +37,7 @@ class MainFragment : Fragment() {
             val newsSources = it.newsSources
             val countries = it.country
             val language = it.languages
+            val explore = it.explore
             val search = it.search
 
             topHeadline.setOnClickListener{
@@ -61,6 +62,11 @@ class MainFragment : Fragment() {
 
             search.setOnClickListener{
                 val intent = Intent(activity, SearchNewsActivity::class.java)
+                startActivity(intent)
+            }
+
+            explore.setOnClickListener{
+                val intent = Intent(activity, ExploreNewsActivity::class.java)
                 startActivity(intent)
             }
         }

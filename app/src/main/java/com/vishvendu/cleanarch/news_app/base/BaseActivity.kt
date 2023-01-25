@@ -1,4 +1,4 @@
-package com.vishvendu.cleanarch.newsapp.base
+package com.vishvendu.cleanarch.news_app.base
 
 import android.app.Activity
 import android.app.Application

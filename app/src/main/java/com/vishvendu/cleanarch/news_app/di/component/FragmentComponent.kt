@@ -16,4 +16,6 @@ interface FragmentComponent {
     fun inject(fragment: LanguageListFragment)
     fun inject(fragment: NewsInLanguageFragment)
     fun inject(fragment: SearchNewsFragment)
+    fun inject(fragment: ExploreNewsFragment)
+    fun inject(fragment: NewsFeedDetailsFragment)
 }

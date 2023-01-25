@@ -1,5 +1,6 @@
 package com.vishvendu.cleanarch.news_app.domain.repository
 
+
 import com.vishvendu.cleanarch.news_app.data.api.NetworkService
 import com.vishvendu.cleanarch.news_app.data.model.searchnews.Article
 import kotlinx.coroutines.flow.Flow
@@ -16,4 +17,9 @@ class SearchNewsRepository @Inject constructor(private val networkService: Netwo
             it.articles
         }
     }
+
+   /* fun getNewsFeed() = Pager(
+        config = PagingConfig(pageSize = 20, maxSize = 100),
+        pagingSourceFactory = { NewsFeedPagingSource(networkService) }
+    ).flow*/
 }

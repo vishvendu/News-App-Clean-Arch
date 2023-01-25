@@ -6,8 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vishvendu.cleanarch.news_app.data.model.countrylist.CountryListItem
 import com.vishvendu.cleanarch.news_app.databinding.CountryListItemsBinding
-import com.vishvendu.cleanarch.news_app.ui.activity.NewsSourceDetailsActivity
-import com.vishvendu.cleanarch.news_app.ui.fragment.NewsForCountryFragment
 import com.vishvendu.cleanarch.news_app.utils.ItemClickListener
 
 class CountryListAdapter(private val context: Context, private val countryList: ArrayList<CountryListItem>) :
