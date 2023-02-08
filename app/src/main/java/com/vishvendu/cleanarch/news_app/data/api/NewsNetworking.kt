@@ -7,8 +7,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object NewsNetworking {
 
-    const val apiKey = "171abfc1a5c049d49568b3cd4785d6c0"
-   // const val apiKey = "f3625c6afa4f486e9ad5d25293a6f4b2"
+   // const val apiKey = "171abfc1a5c049d49568b3cd4785d6c0"
+    const val apiKey = "f3625c6afa4f486e9ad5d25293a6f4b2"
    // const val apiKey = "079dac74a5f94ebdb990ecf61c8854b7"
     fun create(baseurl : String) : NetworkService {
 

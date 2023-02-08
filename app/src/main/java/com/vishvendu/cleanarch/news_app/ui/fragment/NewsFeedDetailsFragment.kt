@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vishvendu.cleanarch.news_app.MyNewsApplication
@@ -18,6 +19,7 @@ import com.vishvendu.cleanarch.news_app.di.module.FragmentModule
 import com.vishvendu.cleanarch.news_app.paging.NewsFeedAdapter
 import com.vishvendu.cleanarch.news_app.ui.activity.NewsFeedDetailsActivity
 import com.vishvendu.cleanarch.news_app.ui.activity.NewsForCountryActivity
+import com.vishvendu.cleanarch.news_app.ui.adapter.NewsFeedLoaderAdapter
 import com.vishvendu.cleanarch.news_app.ui.viewmodel.NewsFeedViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
@@ -98,7 +100,26 @@ class NewsFeedDetailsFragment : Fragment() {
         )
         recyclerView.setHasFixedSize(true)
 
-        recyclerView?.adapter = adapter
+        recyclerView?.adapter = adapter.withLoadStateHeaderAndFooter(
+            header = NewsFeedLoaderAdapter(),
+            footer = NewsFeedLoaderAdapter()
+        )
+
+        adapter.addLoadStateListener{loadState ->
+            val errorState = when {
+                loadState.append is LoadState.Error -> loadState.append as LoadState.Error
+                loadState.prepend is LoadState.Error ->  loadState.prepend as LoadState.Error
+                loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
+                else -> null
+            }
+            errorState?.let {
+                if (errorState.error.localizedMessage == "HTTP 426") {
+                    recyclerView?.adapter = adapter.withLoadStateFooter(
+                        footer = NewsFeedLoaderAdapter()
+                    )
+                }
+            }
+        }
     }
 
 

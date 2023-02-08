@@ -47,7 +47,7 @@ class FragmentModule(private val fragment: Fragment) {
     fun provideSearchNewsAdapter() = SearchNewsAdapter(ArrayList())
 
     @Provides
-    fun provideNewsFeedAdapter() = NewsFeedAdapter(fragment.requireContext())
+    fun provideNewsFeedAdapter() = NewsFeedAdapter()
 
 
     @Provides

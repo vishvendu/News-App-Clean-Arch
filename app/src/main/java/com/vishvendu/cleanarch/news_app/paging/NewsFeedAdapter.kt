@@ -10,11 +10,11 @@ import com.bumptech.glide.Glide
 import com.vishvendu.cleanarch.news_app.data.model.explore.Article
 import com.vishvendu.cleanarch.news_app.databinding.ItemNewsFeedBinding
 
-class NewsFeedAdapter(private val context: Context) : PagingDataAdapter<Article, NewsFeedAdapter.NewsViewHolder>(COMPARATOR) {
+class NewsFeedAdapter : PagingDataAdapter<Article, NewsFeedAdapter.NewsViewHolder>(COMPARATOR) {
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item, context)
+        holder.bind(item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
@@ -40,7 +40,7 @@ companion object {
     }
 }
     class NewsViewHolder(private val binding: ItemNewsFeedBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(article: Article?, context: Context) {
+        fun bind(article: Article?) {
             binding.newsFeedTextViewTitle.text = article?.title
             binding.newsFeedTextViewSource.text = article?.source?.name
             Glide.with(binding.newsFeedImageViewBanner.context)
